@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ */
+
+/*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.table {
+		margin-top: 10px;
+    width: 650px;
+		float:none;
+}
+
+#parent{
+	margin-top: 100px;
+}
+
+.sidebar{
+
+	margin-left: 100px;
+	margin-right: 20px;
+	padding-top: 50px;
+	height: 500px;
+	width: 180px;
+	text-decoration:none;
+	background-color:grey;
+	float:left;
+}
+
+.sidebar a:hover{
+	text-decoration: none;
+}
+
+.active {
+		display:block;
+    background-color: #FFFF75;
+    color: black;
+}
+
+.tab{
+	text-align: right;
+	padding: 5px;
+	padding-right: 15px;
+}
+
+.button_margin{
+	margin-top: 20px;
+}
+
+.field{
+	margin-bottom: 15px;
+}
+
+.left_align{
+	float:left;
+	margin-right: 350px;
+}
+
+#table_head{
+	background-color:#D3D3D3;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InvoiceApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="parent">
+	
+
+	<div class="sidebar">
+		<%= link_to products_path do %>
+  			<div class="tab active" title="Product List">
+  				<h3>Products</h3>
+  			</div>
+		<% end %>
+
+		<div class="tab" title="Invoice List">
+			<h3>Invoices</h3>
+		</div>
+
+	</div>
+	<div>
+		<%= yield %>
+	</div>
+
+</div>
+</body>
+</html>
