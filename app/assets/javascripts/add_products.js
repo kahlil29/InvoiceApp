@@ -42,30 +42,30 @@ $(document).ready(function(){
       // console.log(selected_product);
       product_rate = gon.products[selected_product-1].rate;
       var product_name = gon.products[selected_product-1].name;
-      var $new_product = $(`<div class="parent">
-    <div class="line_item_label" id="product_label">
-      Product
-    </div>
-    <div class="line_item_label">
-      Rate
-    </div>
-    <div class="line_item_label">
-      Quantity
-    </div>
-    <div class="line_item_label">
-      Amount
-    </div>
-    <br>
-    <textarea readonly class="form-control line_item_textbox" id="product_name">`+ product_name + `</textarea>
-    <div style="float:left"> @ </div>
-    <textarea readonly disabled class="form-control line_item_textbox class_num`+div_counter.toString()+`" id="rate">`+ product_rate + `</textarea>
-    <div id="multiply_sign" >x </div>
-    <textarea  class="form-control line_item_textbox class_num`+div_counter.toString()+`" id="quantity"> </textarea>
-    <textarea readonly class="form-control line_item_textbox class_num`+div_counter.toString()+`" id="amount"> </textarea>
-    <br>
-    <br>
-    <hr id="below_line_item">
-  </div>`)
+  //     var $new_product = $(`<div class="parent">
+  //   <div class="line_item_label" id="product_label">
+  //     Product
+  //   </div>
+  //   <div class="line_item_label">
+  //     Rate
+  //   </div>
+  //   <div class="line_item_label">
+  //     Quantity
+  //   </div>
+  //   <div class="line_item_label">
+  //     Amount
+  //   </div>
+  //   <br>
+  //   <textarea readonly class="form-control line_item_textbox" id="product_name">`+ product_name + `</textarea>
+  //   <div style="float:left"> @ </div>
+  //   <textarea readonly disabled class="form-control line_item_textbox class_num`+div_counter.toString()+`" id="rate">`+ product_rate + `</textarea>
+  //   <div id="multiply_sign" >x </div>
+  //   <textarea  class="form-control line_item_textbox class_num`+div_counter.toString()+`" id="quantity"> </textarea>
+  //   <textarea readonly class="form-control line_item_textbox class_num`+div_counter.toString()+`" id="amount"> </textarea>
+  //   <br>
+  //   <br>
+  //   <hr id="below_line_item">
+  // </div>`)
       $('#add_line_item').before($new_product)
     }
     selected_product = -1;
