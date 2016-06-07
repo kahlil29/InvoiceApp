@@ -13,5 +13,6 @@
 //= require jquery
 //= require bootstrap
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap-datepicker
+//= require add_products
 //= require_tree .

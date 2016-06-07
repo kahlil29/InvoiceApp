@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601215935) do
+ActiveRecord::Schema.define(version: 20160605224526) do
+
+  create_table "invoices", force: :cascade do |t|
+    t.string   "invoice_number"
+    t.date     "inv_date"
+    t.string   "customer_name"
+    t.integer  "customer_phone", limit: 8
+    t.string   "customer_email"
+    t.text     "products"
+    t.integer  "total"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

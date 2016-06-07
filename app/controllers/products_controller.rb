@@ -4,7 +4,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.paginate(:page => params[:page], :per_page => 5)
+    @all_products = Product.all
+    gon.page_url = request.path
   end
 
   # GET /products/1
@@ -14,6 +16,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
+    gon.page_url = request.path
     @product = Product.new
   end
 

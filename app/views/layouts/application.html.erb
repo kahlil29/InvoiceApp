@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>InvoiceApp</title>
+  <%= include_gon %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,15 +13,16 @@
 
 	<div class="sidebar">
 		<%= link_to products_path do %>
-  			<div class="tab active" title="Product List">
+  			<div class="tab products_tab" title="Product List">
   				<h3>Products</h3>
   			</div>
 		<% end %>
 
-		<div class="tab" title="Invoice List">
+		<%= link_to invoices_path do %>
+		<div class="tab invoices_tab" title="Invoice List">
 			<h3>Invoices</h3>
 		</div>
-
+		<% end %>
 	</div>
 	<div>
 		<%= yield %>

@@ -17,6 +17,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//*= require bootstrap-datepicker3
+
+
 .table {
 		margin-top: 10px;
     width: 650px;
@@ -31,8 +34,9 @@
 
 	margin-left: 100px;
 	margin-right: 20px;
+	margin-bottom: 40px;
 	padding-top: 50px;
-	height: 500px;
+	height: 800px;
 	width: 180px;
 	text-decoration:none;
 	background-color:grey;
@@ -43,7 +47,7 @@
 	text-decoration: none;
 }
 
-.active {
+.active{
 		display:block;
     background-color: #FFFF75;
     color: black;
@@ -70,4 +74,88 @@
 
 #table_head{
 	background-color:#D3D3D3;
+}
+
+#pagination{
+	text-align: right;
+	margin-right: 358px;
+}
+
+.right_align{
+	float:right;
+	margin-left: 50px;
+	margin-right: 500px;
+}
+
+#h_line{
+	margin-right: 450px;
+	border: none;
+	height:2px;
+	background-color: #D3D3D3;
+}
+
+#product_select{
+	width:200px;
+}
+
+#add_product_btn{
+	float:right;
+	margin-right: 500px;
+	margin-top: 25px;
+}
+
+//new line items styling below this
+
+.parent{
+	margin-top: 20px;
+}
+
+
+.line_item_label{
+	position: relative;
+	float: left;
+	margin-right: 51px;
+	margin-left: 3px;
+	/*font-size: 10px;*/
+}
+
+#product_label{
+	margin-right: 142px;
+}
+
+.line_item_textbox{
+	float:left;
+	margin-right: 20px;
+	height: 30px !important;
+	width: 40px;
+	resize:none;
+	padding: 3px;
+}
+
+#product_name{
+	margin-right: 20px;
+	width: 150px;
+}
+
+#rate{
+	margin-left: 10px;
+}
+#multiply_sign{
+ float: left;
+ margin-right: 10px;
+}
+#quantity{
+	margin-left: 8px;
+	width: 55px;
+}
+#amount{
+	margin-left: 30px;
+	width: 60px;
+}
+
+#below_line_item{
+	margin-right: 450px;
+	border: none;
+	height:1.5px;
+	background-color: #D3D3D3;
 }

@@ -3,9 +3,9 @@
   <div class="left_align">
     <h4>Products / Product List</h4>
   </div>
-    <div title="Create Product">
-      <%= link_to '+ New Product', new_product_path, class: "btn btn-success" %>
-    </div>
+  <div title="Create Product">
+    <%= link_to '+ New Product', new_product_path, class: "btn btn-success" %>
+  </div>
 </div>
 <table class="table table-bordered table-hover ">
   <thead id="table_head">
@@ -27,6 +27,10 @@
     <% end %>
   </tbody>
 </table>
+
+<div id="pagination">
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+<div>
 
 <br>
 
