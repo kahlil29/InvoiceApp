@@ -15,4 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap-datepicker
 //= require add_products
+//= require bootstrapValidator.min
+//= require rails.validations
 //= require_tree .

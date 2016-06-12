@@ -41,6 +41,16 @@ gem 'bootstrap-datepicker-rails'
 #gon gem for rails variables in js
 gem 'gon'
 
+#gem for bootstrap validator
+gem 'bootstrap-validator-rails'
+
+#gem for forms/validation
+gem 'bootstrap_form'
+
+#gem for client side validations
+gem 'client_side_validations'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

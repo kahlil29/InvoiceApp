@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
+    gon.page_url = request.path
     respond_to do |format|
       if @product.save
         format.html { redirect_to products_path}
