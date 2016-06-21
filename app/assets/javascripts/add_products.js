@@ -60,7 +60,7 @@ $(document).ready(function(){
     '<textarea  class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="quantity"> </textarea>' +
     '<textarea readonly class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="amount"> </textarea>' +
     '<button name="button" type="button" class="btn remove_button'+div_counter.toString()+'" id="remove_product_btn">Remove</button>'+
-    '<br> <div class="form-control override'+div_counter.toString()+'"> <a>Override</a> </div> <hr id="below_line_item"> </div>'
+    '<br> <div id="override'+div_counter.toString()+'"> <a>Override</a> </div> <hr id="below_line_item"> </div>'
       )
 
 
