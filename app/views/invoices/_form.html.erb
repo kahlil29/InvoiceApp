@@ -29,16 +29,15 @@
 
   <div class="field right_align_field">
     <%= f.label :invoice_date %><br>
-<!--     <input type="text" data-provide='datepicker' >
-    <%= f.date_select :inv_date, class: 'datepicker' %> -->
+
     <%= f.text_field :inv_date, class: 'datepicker', :value => Time.now.strftime('%d-%m-%Y') %>
 
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
       $(document).ready(function(){
       $('.datepicker').datepicker();
         });
     </script>
-
+ -->
   </div>
   
 
@@ -55,9 +54,12 @@
       <%= f.hidden_field :products,  :id=>"products_list_form", :value=> " " %>
 
   </div>
-  <div class="field">
-    <%= f.label :total %><br>
-    <%= f.number_field :total, :readonly=>true %>
+
+  <hr id="below_line_item">
+
+  <div class="field invoice_total">
+    <%= button_tag "Calculate Total", :type => 'button', :class=>"btn", :id=>"calc_total" %>
+    <%= f.number_field :total, :readonly=>true, :id=>"invoice_total_textbox" %>
   </div>
   <div class="actions">
     <%= f.submit :class => 'btn btn-success', :id=>"submit_new_invoice" %>

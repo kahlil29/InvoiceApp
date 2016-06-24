@@ -12,13 +12,17 @@ $(document).ready(function(){
     var products_quantity_to_db = [];
     var products_added_to_invoice = " ";
 
-  if(gon.page_url=="/products"||gon.page_url=="/products/new"){
+  if(gon.page_url=="/products"||gon.page_url=="/products/new"||gon.page_url=="/"){
     $('.products_tab').addClass('active');
   }
   else if(gon.page_url=="/invoices"||gon.page_url=="/invoices/new"){
     $('.invoices_tab').addClass('active');
   }
 
+  $('.datepicker').datepicker({
+        format: "dd/mm/yyyy"
+  });
+      
 
   $('#product_select').on('change', function() {
 
@@ -55,12 +59,12 @@ $(document).ready(function(){
     '</div> <br>' +
     '<textarea readonly class="form-control line_item_textbox" id="product_name">'+ product_name + '</textarea>' +
     '<div style="float:left"> @ </div>' +
-    '<textarea readonly disabled class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="rate">'+ product_rate + '</textarea>' +
+    '<textarea readonly class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="rate">'+ product_rate + '</textarea>' +
     '<div id="multiply_sign" >x </div>'+
     '<textarea  class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="quantity"> </textarea>' +
     '<textarea readonly class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="amount"> </textarea>' +
     '<button name="button" type="button" class="btn remove_button'+div_counter.toString()+'" id="remove_product_btn">Remove</button>'+
-    '<br> <div id="override'+div_counter.toString()+'"> <a>Override</a> </div> <hr id="below_line_item"> </div>'
+    '<br> <div id="override" class = "class_num'+div_counter.toString()+'"> <a>Override</a> </div> <hr id="below_line_item"> </div>'
       )
 
 
@@ -78,7 +82,7 @@ $(document).ready(function(){
 
 
 
-  $(document).on('change', '#quantity',function() {
+  $(document).on('focusout', '#quantity',function() {
       // $('#amount').val(calc_amount);
       var className = $(this).attr('class');
       var class_num_name = className.split(' ')[2];
@@ -124,5 +128,21 @@ $('#submit_new_invoice').click(function(){
   //alert(products_added_to_invoice);
 
 });
+
+$(document).on('click', '#override',function(){
+  override_className = $(this).attr('class');
+  $('#rate.'+override_className).prop('readonly', false);
+  $('#rate.'+override_className).focus();
+
+});
+
+$('#calc_total').click(function(){
+  invoice_total = 0
+  for (var i = 0; i < products_id_in_db.length; i++) {
+    invoice_total+= parseInt($('#amount.class_num'+i.toString()).val());
+  }
+  $('#invoice_total_textbox').val(invoice_total);
+});
+
 
 });

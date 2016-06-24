@@ -39,15 +39,27 @@
 	margin-right: 20px;
 	margin-bottom: 40px;
 	padding-top: 50px;
-	height: 800px;
+	height: 1500px;
 	width: 180px;
 	text-decoration:none;
 	background-color:grey;
 	float:left;
 }
 
+#error_explanation{
+	color: red;
+	margin-left: 300px;
+}
+
 .sidebar a:hover{
 	text-decoration: none;
+}
+
+.tab{
+	text-align: right;
+	padding: 5px;
+	padding-right: 15px;
+	color:white;
 }
 
 .active{
@@ -56,11 +68,7 @@
     color: black;
 }
 
-.tab{
-	text-align: right;
-	padding: 5px;
-	padding-right: 15px;
-}
+
 
 
 .field{
@@ -168,8 +176,10 @@
 
 #add_product_btn{
 	float:right;
-	margin-right: 500px;
+	margin-right: 435px;
 	margin-top: 25px;
+	padding-left: 23px;
+	padding-right: 23px;
 }
 
 
@@ -181,4 +191,31 @@
 	color: #D00;
 	padding-left: 5px;
 	font-size: 12px;
+}
+
+#override{
+	margin-left: 490px;
+	margin-right: 745px;
+	size: 10px;
+}
+
+.invoice_total{
+	margin-left: 655px;
+}
+
+#invoice_total_textbox{
+	width: 70px;
+	margin-left: 10px;
+}
+
+.invoice_table{
+	table-layout:fixed;
+}
+
+.date_column{
+	width:90px;
+}
+
+.invoice_table_normal_column{
+	width:82px;
 }
