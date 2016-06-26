@@ -4,13 +4,22 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.paginate(:page => params[:page], :per_page => 5)
     gon.page_url = request.path
   end
 
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+  end
+
+  def search
+    gon.page_url = request.path
+    #@search_return = Invoice.all
+    search_param = params[:invoice_search]
+    search_result_products = Invoice.where('products LIKE ?', "%"+search_param+"%").all
+    search_result_customer_name = Invoice.where('customer_name LIKE ?', "%"+search_param+"%").all
+    @final_search_result = search_result_products + search_result_customer_name
   end
 
   # GET /invoices/new

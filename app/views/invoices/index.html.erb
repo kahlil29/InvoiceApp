@@ -2,6 +2,23 @@
 
 <h4>Invoices / Invoice List </h4>
 
+
+
+<div class="search_and_new_invoice">
+    <span class="input-group-addon" id="search_icon">
+        <i class="glyphicon glyphicon-search"></i>
+    </span>
+
+    <%= form_tag "/search", method: :get, :class=>"form-inline" do %>
+    <div class = "form-group" id="search_inv_input" >
+      <%= text_field_tag :invoice_search, nil, class: "form-control", id:"search_text_input", placeholder:"Search by Customer Contact Details or Product Names" %>
+      <%= submit_tag "Search", class:"form-control", id:"search_invoice_btn" %>
+    </div>
+    <% end %>
+  <%= link_to '+ New Invoice', new_invoice_path, class: "btn btn-success new_invoice_btn"%>
+</div>
+<br>
+
 <table class="table table-bordered table-hover invoice_table">
   <thead id="table_head">
     <tr>
@@ -39,5 +56,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Invoice', new_invoice_path %>
+<div id="pagination">
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+<div>

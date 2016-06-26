@@ -12,15 +12,32 @@ $(document).ready(function(){
     var products_quantity_to_db = [];
     var products_added_to_invoice = " ";
 
+  // console.log(gon.page_url)
   if(gon.page_url=="/products"||gon.page_url=="/products/new"||gon.page_url=="/"){
     $('.products_tab').addClass('active');
   }
-  else if(gon.page_url=="/invoices"||gon.page_url=="/invoices/new"){
+  else if(gon.page_url=="/invoices"||gon.page_url=="/invoices/new"||gon.page_url=="/search"){
     $('.invoices_tab').addClass('active');
   }
 
-  $('.datepicker').datepicker({
+  $('.date').datepicker({
         format: "dd/mm/yyyy"
+  });
+
+  //check if search params are entered
+  $('#search_invoice_btn').click(function(){
+    search_text_input = $('#search_text_input').val()
+    
+      
+      $("form").submit(function(e){
+          if (!search_text_input.trim()){
+            alert("Please enter some search parameters!");
+            return false;
+          }      
+          else {
+            return true;
+          }
+                            });
   });
       
 

@@ -219,3 +219,41 @@
 .invoice_table_normal_column{
 	width:82px;
 }
+
+#calendar_icon{
+	width:40px;
+	height: 26px;
+	float: right;
+	padding-top: 5px;
+}
+
+.date{
+	width:80px;
+	display: inline;
+}
+
+#date_text{
+	width: 134px;
+}
+
+#search_text_input{
+	width:390px;
+}
+
+#search_icon{
+	width:20px;
+	height:34px;
+}
+
+.search_and_new_invoice{
+	display: -webkit-inline-box;
+}
+
+.new_invoice_btn{
+	margin-left: 31px;
+}
+
+#search_invoice_table{
+	width:auto;
+	margin-right: 20px;
+}

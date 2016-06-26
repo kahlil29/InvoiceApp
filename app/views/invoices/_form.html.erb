@@ -29,15 +29,14 @@
 
   <div class="field right_align_field">
     <%= f.label :invoice_date %><br>
-
-    <%= f.text_field :inv_date, class: 'datepicker', :value => Time.now.strftime('%d-%m-%Y') %>
-
-<!--     <script type="text/javascript">
-      $(document).ready(function(){
-      $('.datepicker').datepicker();
-        });
-    </script>
- -->
+    
+    <div class="date">
+    <%= f.text_field :inv_date, :id=>"date_text", :value => Time.now.strftime('%d/%m/%Y') %>
+    <!-- <span class="glyphicon glyphicon-calendar"> -->
+    <span class="input-group-addon" id="calendar_icon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+    </div>
   </div>
   
 
