@@ -11,6 +11,9 @@ $(document).ready(function(){
     var products_id_in_db = [];
     var products_quantity_to_db = [];
     var products_added_to_invoice = " ";
+    var line_item_label_div = '</div> <div class="line_item_label">'
+    var custom_product_added = false;
+    var custom_products = []
 
   // console.log(gon.page_url)
   if(gon.page_url=="/products"||gon.page_url=="/products/new"||gon.page_url=="/"){
@@ -37,7 +40,7 @@ $(document).ready(function(){
           else {
             return true;
           }
-                            });
+      });
   });
       
 
@@ -48,8 +51,11 @@ $(document).ready(function(){
    list_of_already_selected.push(this.value);
    selected_product = this.value;
    }
+   else if(this.value == 0){
+     selected_product = 0;
+   }
    else {
-     selected_product = -1;
+    selected_product = -1;
    }
   console.log(this.value);
  });
@@ -61,20 +67,44 @@ $(document).ready(function(){
     {
       alert("Please select a valid product (You cannot add the same product to the invoice twice!)")
     }
+
+    //custom line-item
     else if(selected_product ==0){
-      alert("add html for custom product and make provision to add amount of custom product in final total");
+     
+            var $custom_product = $('<div class="parent'+div_counter.toString()+'"> <div class="line_item_label" id="product_label"> Product' +
+    line_item_label_div +'Rate' + line_item_label_div +'Quantity' + line_item_label_div + 'Amount' +
+    '</div> <br>' +
+    '<textarea class="form-control line_item_textbox product_name" id="custom_product'+div_counter.toString()+'"></textarea>' +
+    '<div style="float:left"> @ </div>' +
+    '<textarea class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="rate"></textarea>' +
+    '<div id="multiply_sign" >x </div>'+
+    '<textarea  class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="quantity"></textarea>' +
+    '<textarea readonly class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="amount"> </textarea>' +
+    '<button name="button" type="button" class="btn remove_button'+div_counter.toString()+'" id="remove_product_btn">Remove</button>'+
+    '<br> <hr id="below_line_item"> </div>'
+      )
+
+    $('#add_line_item').before($custom_product)
+
+    list_of_added_products.push(div_counter);
+
+    custom_product_added = true;
+    custom_products.push(div_counter);
+
+    div_counter += 1;
+
     }
     else{
       // console.log(selected_product);
       product_rate = gon.products[selected_product-1].rate;
       var product_name = gon.products[selected_product-1].name;
 
-      var line_item_label_div = '</div> <div class="line_item_label">'
+      
 
       var $new_product = $('<div class="parent'+div_counter.toString()+'"> <div class="line_item_label" id="product_label"> Product' +
     line_item_label_div +'Rate' + line_item_label_div +'Quantity' + line_item_label_div + 'Amount' +
     '</div> <br>' +
-    '<textarea readonly class="form-control line_item_textbox" id="product_name">'+ product_name + '</textarea>' +
+    '<textarea readonly class="form-control line_item_textbox product_name">'+ product_name + '</textarea>' +
     '<div style="float:left"> @ </div>' +
     '<textarea readonly class="form-control line_item_textbox class_num'+div_counter.toString()+'" id="rate">'+ product_rate + '</textarea>' +
     '<div id="multiply_sign" >x </div>'+
@@ -141,6 +171,12 @@ $('#submit_new_invoice').click(function(){
   products_added_to_invoice = products_added_to_invoice + gon.products[parseInt(products_id_in_db[i])-1].name +" x "+products_quantity_to_db[i] +" ; "
 
   }
+  if(custom_product_added==true){
+    for( var j=0; j<custom_products.length; j++){
+      current_product_name = $("#custom_product"+custom_products[j].toString()).val()
+      products_added_to_invoice = products_added_to_invoice + current_product_name + " x "+products_quantity_to_db[custom_products[j]] +" ; "
+    }
+  }
   $('#products_list_form').val(products_added_to_invoice);
   //alert(products_added_to_invoice);
 
@@ -157,6 +193,11 @@ $('#calc_total').click(function(){
   invoice_total = 0
   for (var i = 0; i < products_id_in_db.length; i++) {
     invoice_total+= parseInt($('#amount.class_num'+i.toString()).val());
+  }
+  if(custom_product_added==true){
+    for( var j=0; j<custom_products.length; j++){
+      invoice_total+=parseInt($('#amount.class_num'+custom_products[j].toString()).val());
+    }
   }
   $('#invoice_total_textbox').val(invoice_total);
 });
