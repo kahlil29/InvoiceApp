@@ -4,7 +4,7 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.paginate(:page => params[:page], :per_page => 5)
+    @invoices = Invoice.reorder(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
     gon.page_url = request.path
   end
 
